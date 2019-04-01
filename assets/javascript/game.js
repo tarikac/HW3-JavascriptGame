@@ -4,7 +4,7 @@ var losses = 0;
 var presses = 9;
 var test = "";
 var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
+var guesses = [];
 //initial run of random letters
 var randomLetters = letters[Math.floor(Math.random() * letters.length)];
 
@@ -14,8 +14,11 @@ var storeLoss = document.getElementById("number-loss");
 var attempts = document.getElementById("guess-left"); 
 var tries = document.getElementById("letters-guessed");
 
+//reference back to originally rps game
+
 document.onkeyup = function(event) {
-    tries.textContent = (event.key);//need to come back append
+    tries.textContent = (event.key);
+    guesses.push(tries);
    
     
     // was trying to figure out how best to treat the decrease
