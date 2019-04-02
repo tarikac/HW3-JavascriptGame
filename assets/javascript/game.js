@@ -5,6 +5,7 @@ var presses = 9;
 var test = "";
 var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var guesses = [];
+
 //initial run of random letters
 var randomLetters = letters[Math.floor(Math.random() * letters.length)];
 
@@ -17,9 +18,14 @@ var tries = document.getElementById("letters-guessed");
 //reference back to originally rps game
 
 document.onkeyup = function(event) {
-    tries.textContent = (event.key);
-    guesses.push(tries);
-   
+    //may need to add this to a for loop? 
+    var entries = String.fromCharCode(event.keyCode);
+    guesses.push(entries);
+    tries.textContent = guesses;
+
+
+    
+    // tries.appendChild=(event.key);
     
     // was trying to figure out how best to treat the decrease
     if(event.key=true){
@@ -34,7 +40,7 @@ document.onkeyup = function(event) {
         presses = 10;
         randomLetters = letters[Math.floor(Math.random() * letters.length)];
         losses++;
-        tries.empty();
+       tries.empty(guesses); //this did not work..i also tried keeping it has empty();
     }
 //do this if key pressed matches the number from randomly generated
 //this also needs to reset the counter when pressed switched from forloop to just using ifs
