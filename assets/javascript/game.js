@@ -19,7 +19,7 @@ var tries = document.getElementById("letters-guessed");
 
 document.onkeyup = function(event) {
     //may need to add this to a for loop? 
-    var entries = String.fromCharCode(event.keyCode);
+    var entries = String.fromCharCode(event.keyCode);  //https://www.w3schools.com/jsref/jsref_fromcharcode.asp
     guesses.push(entries);
     tries.textContent = guesses;
 
@@ -30,12 +30,13 @@ document.onkeyup = function(event) {
     // was trying to figure out how best to treat the decrease
     if(event.key=true){
         presses--;
+    
     }
 
     //want to make sure once it is set to 0, it resets
     //not clean and needs to simplified better
     if(presses==0){
-        presses = 0;//0  wasn't showing so added this line
+        presses = 0;
         attempts.textContent = presses;
         presses = 10;
         randomLetters = letters[Math.floor(Math.random() * letters.length)];
