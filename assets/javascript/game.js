@@ -40,7 +40,9 @@ document.onkeyup = function(event) {
         presses = 10;
         randomLetters = letters[Math.floor(Math.random() * letters.length)];
         losses++;
-       tries.empty(guesses); //this did not work..i also tried keeping it has empty();
+        guesses = []; //looks like this resets the array!
+       //tries.empty(guesses); //this did not work..i also tried keeping it has empty();
+       
     }
 //do this if key pressed matches the number from randomly generated
 //this also needs to reset the counter when pressed switched from forloop to just using ifs
